@@ -8,7 +8,7 @@ Understand research outside your expertise through explanations matched to your 
 
 This skill builds on source reading: it organizes the paper into an index, layered explanations, original evidence and an interactive HTML reader. It does not include document parsers.
 
-A Harness is the environment that runs the agent and provides tools and file access—for example, Codex used through an OpenAI subscription. Your Harness must already have a matching reading skill or equivalent tool:
+Your Harness must already have a matching reading skill or equivalent tool:
 
 | Paper format | Required capability |
 | --- | --- |
@@ -53,7 +53,7 @@ Add a preference only when you need one:
 | Deep: professional background | Help me read this paper. I am a professional in this field. |
 | Use ImageGen | Help me read this paper and use ImageGen to make explanatory illustrations based on the paper's original figures. |
 
-ImageGen is optional and can accompany any background level. It requires an image-generation tool available in the Harness and the original figure as a reference. Interactive HTML is the default.
+ImageGen is optional and can accompany any background level. It is used only when the Harness has image-generation capabilities (for example, when using Codex with an OpenAI ChatGPT subscription) and the paper’s original figure is available as a reference. Interactive HTML is the default.
 
 The first result contains the paper's index, a suggested reading route, relevant terms, and one unit explained with visual aids. Other units remain explicitly unexpanded. Explanations assume beginner, related-field or specialist background; this does not limit how deeply you can explore a unit.
 
