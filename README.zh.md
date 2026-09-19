@@ -8,7 +8,7 @@
 
 | Skill | 用途 |
 | --- | --- |
-| [kuroneko-paper-reader](skills/kuroneko-paper-reader/README.zh.md) | 结合原始证据，通过交互式HTML逐步阅读一篇论文。 |
+| [kuroneko-paper-reader](skills/kuroneko-paper-reader/README.zh.md) | 通过分层讲解与交互式图解，帮助你理解论文中的概念、方法和证据。 |
 
 ## 安装
 

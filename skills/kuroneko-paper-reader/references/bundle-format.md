@@ -1,6 +1,6 @@
 # Reading bundle, format version 1
 
-The agent authors ordinary JSON and HTML fragments; the helper performs deterministic packaging. No npm, API key, server, OCR engine or PDF library is required by the helper. Use host tools for obtaining and inspecting source material.
+The agent authors ordinary JSON and HTML fragments; the helper performs deterministic packaging. No npm, API key, server, OCR engine or PDF library is required by the helper. Use the Harness’s tools for obtaining and inspecting source material.
 
 ## Files and ownership
 

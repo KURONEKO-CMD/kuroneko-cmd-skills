@@ -2,13 +2,13 @@
 
 [中文](README.zh.md) · [All skills](../../README.md) · [Agent instructions](SKILL.md)
 
-Read one research paper progressively: start with its structure, then explore selected sections using original figures and evidence. Keep an HTML reading bundle that can grow across conversations.
+Understand research outside your expertise through explanations matched to your background and interactive visual aids. Make sense of unfamiliar concepts, methods and evidence: start with the question the paper addresses, explore how it works and what supports its conclusions, then ask about the parts you still find difficult.
 
 ## Prerequisites
 
 This skill builds on source reading: it organizes the paper into an index, layered explanations, original evidence and an interactive HTML reader. It does not include document parsers.
 
-Your agent environment must already have a matching reading skill or equivalent tool:
+A Harness is the environment that runs the agent and provides tools and file access—for example, Codex used through an OpenAI subscription. Your Harness must already have a matching reading skill or equivalent tool:
 
 | Paper format | Required capability |
 | --- | --- |
@@ -53,9 +53,9 @@ Add a preference only when you need one:
 | Deep: professional background | Help me read this paper. I am a professional in this field. |
 | Use ImageGen | Help me read this paper and use ImageGen to make explanatory illustrations based on the paper's original figures. |
 
-ImageGen is optional and can accompany any background level. It requires an available host image-generation tool and the original figure as a reference. Interactive HTML is the default.
+ImageGen is optional and can accompany any background level. It requires an image-generation tool available in the Harness and the original figure as a reference. Interactive HTML is the default.
 
-The first result contains the paper's index, a suggested reading route, relevant terms, and one explained unit. Other units remain explicitly unexpanded. Explanations assume beginner, related-field or specialist background; this does not limit how deeply you can explore a unit.
+The first result contains the paper's index, a suggested reading route, relevant terms, and one unit explained with visual aids. Other units remain explicitly unexpanded. Explanations assume beginner, related-field or specialist background; this does not limit how deeply you can explore a unit.
 
 Open `reader.html` in a browser. Switch between existing explanations instantly. To add one, click a unit's prompt button, optionally add a question, and paste the exported prompt into your agent conversation. The agent updates the same bundle, keeping earlier explanations and original evidence.
 
@@ -67,26 +67,7 @@ Each paper has an independent folder, normally under `paper-readings/` in the us
 
 The UI and exported prompts follow the requested language. English, Simplified Chinese and Japanese UI dictionaries are included; the agent can add other complete translations. Unwritten levels are clearly marked. Original technical identifiers and figure pixels are preserved.
 
-Image generation is optional and requires an explicit user request plus a capable host tool. It must reference the original paper's figure. The normal reader needs no image-generation service. Source gaps and inconsistencies remain visible.
-
-## Development and validation
-
-Run from the repository root:
-
-```sh
-python -m unittest discover -s tests -v
-```
-
-The public test fixtures are fictional. Original paper files, extracts, figures, reading bundles and validation screenshots belong outside this repository. PDF files and common reading-output directories are ignored. Do not force-add private reading data.
-
-Validated locally on 2026-09-19:
-
-- 18 standard-library regression tests, skill metadata and relative resource paths.
-- Chromium: English, Chinese and Japanese UI/prompts; original-figure viewing; level switching; unexpanded sections; clipboard fallback; standalone HTML; desktop and 390px mobile layouts.
-- Native Codex discovery from an isolated project-local install. A fresh conversation used a browser-exported prompt to extend an existing paper reader to medium level, retaining the light explanation, other units, original files and template. It added a source-gap note to the existing explanation when further inspection exposed limitations.
-- Three separate, private real-paper cases: explanation upgrade/return, missing supplements, and conflicting figure/text statements. A fictional algorithm example checks non-biomedical structure.
-
-Claude Code has installation instructions and a portable skill format; its runtime is **not verified**. End-to-end Word/other-file reading, other UI languages, ImageGen integration, other browsers and simultaneous editing by several agents are also unverified. A successful package build does not validate scientific conclusions.
+Image generation is optional and requires an explicit user request plus a capable tool in the Harness. It must reference the original paper's figure. The normal reader needs no image-generation service. Source gaps and inconsistencies remain visible.
 
 ## License
 

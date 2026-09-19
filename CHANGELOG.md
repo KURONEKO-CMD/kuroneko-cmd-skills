@@ -13,7 +13,9 @@ Manually maintained. Unreleased changes are not a published release.
 
 ### Changed
 
-- Accept host-readable paper formats and explicitly depend on existing PDF, Word or web reading capabilities. Simplify the default prompt and document optional background and ImageGen requests.
+- Center the skill on understanding research through layered explanations and meaningful visual aids; clarify the Harness prerequisites and simplify user-facing documentation.
+
+- Accept paper formats readable by the Harness and explicitly depend on existing PDF, Word or web reading capabilities. Simplify the default prompt and document optional background and ImageGen requests.
 
 - Keep repository READMEs focused on the skill catalog and shared installation principles; move paper-reader usage and validation details into its bilingual READMEs.
 - Ignore root-level local agent instructions.

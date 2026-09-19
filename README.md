@@ -8,7 +8,7 @@ A collection of small, portable skills for AI coding agents. Created and maintai
 
 | Skill | Purpose |
 | --- | --- |
-| [kuroneko-paper-reader](skills/kuroneko-paper-reader/README.md) | Read one research paper progressively with an interactive HTML reader and source evidence. |
+| [kuroneko-paper-reader](skills/kuroneko-paper-reader/README.md) | Understand research concepts, methods and evidence through layered explanations and interactive visual aids. |
 
 ## Installation
 
