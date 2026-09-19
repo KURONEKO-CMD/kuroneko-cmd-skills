@@ -1,0 +1,11 @@
+# Private reading data never belongs in this repository.
+*.[pP][dD][fF]
+/.local/
+/paper-readings/
+/readings/
+/validation/
+.DS_Store
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.env
