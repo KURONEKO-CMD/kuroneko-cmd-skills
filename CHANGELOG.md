@@ -11,6 +11,11 @@ Manually maintained. Unreleased changes are not a published release.
 - Standard-library Python helpers for bundle initialization, validation and offline packaging.
 - English and Chinese documentation, MIT license and fictional regression fixtures.
 
+### Changed
+
+- Keep repository READMEs focused on the skill catalog and shared installation principles; move paper-reader usage and validation details into its bilingual READMEs.
+- Ignore root-level local agent instructions.
+
 ### Validated
 
 - Native Codex skill discovery and fresh-conversation incremental reading; browser interaction in English, Chinese and Japanese.
