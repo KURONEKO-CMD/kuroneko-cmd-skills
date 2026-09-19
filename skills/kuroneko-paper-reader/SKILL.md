@@ -9,7 +9,8 @@ Help a reader understand one paper through an index, selected explanations and o
 
 ## Start or continue
 
-- **New paper:** accept a PDF, accessible paper URL or supplied text. Treat supplements as part of the same paper. If several independent papers arrive without a chosen target, ask which one to start with. Use the host's PDF/browser tools to obtain the paper, inspect its structure and visually check figures used in explanations. Do not substitute an abstract for an unavailable full text without saying so.
+- **New paper:** accept one paper in PDF, Word, another host-readable document format, an accessible URL, or supplied text. Treat supplements as part of the same paper. If several independent papers arrive without a chosen target, ask which one to start with.
+- **Read the source first:** this skill builds on document-reading capabilities; it does not provide PDF, Word, OCR or web parsers. Use the host's available matching skill or tool: PDF reading for PDF, Word/document reading for Word, browser/web reading for URLs, and the appropriate reader for other formats. Read that skill's instructions when available. Preserve extracted structure, figures and source locators for the teaching layer. If the required reader is unavailable, explain what capability is needed and request a readable export or supplied content; do not pretend the source was read or automatically install dependencies. Do not substitute an abstract for an unavailable full text without saying so.
 - **Existing reader or exported prompt:** locate the supplied bundle, read `project.json` and the relevant existing content, then continue that project. Read [the bundle contract](references/bundle-format.md) before editing. Compare the prompt revision with current files; use current files as the base. If files are inaccessible, ask for the complete bundle or its location instead of rebuilding from memory.
 - For explanation choices and evidence handling, consult [reading guidance](references/reading-guide.md). Do not load unrelated references on every follow-up.
 
@@ -17,20 +18,22 @@ Help a reader understand one paper through an index, selected explanations and o
 
 Create an original-structure index and a suggested question-led route, a small relevant glossary, and one fully explained key unit. Mark the rest as planned or source-missing. Adapt the units to the paper: experiments, arguments, proofs, algorithms and systems need different routes.
 
-Use the user's requested language and explanation level. Otherwise follow the language of their reading request and start at `light`. A pasted foreign-language excerpt does not change the project's language. Levels mean assumed background, not limits on how far someone may read:
+A request as short as ‘Help me read this paper’ plus the paper is sufficient. Do not require the user to specify format, background, level, language or output path before starting when the source is readable. Use the user's requested language and explanation level. Otherwise follow the language of their reading request and start at `light`. A pasted foreign-language excerpt does not change the project's language. Levels mean assumed background, not limits on how far someone may read:
 
 - `light`: explain unfamiliar objects and terms from first principles.
 - `medium`: assume related disciplinary knowledge; explain unfamiliar mechanisms and methods.
 - `deep`: assume specialist vocabulary; focus on argument, evidence, design and limitations.
 
+Interpret “I understand some of this, but not all” as `medium`, and “I am a professional in this field” as `deep`; no background statement defaults to `light`.
+
 Keep claims and uncertainty consistent across levels. A novice can request all experimental detail. Preserve existing levels when adding another; correct affected versions together if a factual error emerges.
 
 ## Produce and update the bundle
 
-Resolve bundled paths relative to this skill's directory, not the user's working directory. Python 3.10+ is needed only for the standard-library helper:
+Resolve bundled paths relative to this skill's directory, not the user's working directory. Python 3.10+ is needed only for the standard-library helper, which copies source files and packages authored content; it does not parse the paper:
 
 ```sh
-python <skill-directory>/scripts/reader.py init <bundle-directory> --title "Paper title" --source <local-paper.pdf> --language zh-CN
+python <skill-directory>/scripts/reader.py init <bundle-directory> --title "Paper title" --source <local-paper-file> --language zh-CN
 python <skill-directory>/scripts/reader.py check <bundle-directory>
 python <skill-directory>/scripts/reader.py build <bundle-directory> --expect-revision 0
 ```
@@ -39,9 +42,9 @@ The default output location is `paper-readings/<paper-slug>/` in the user's work
 
 Author units and content using the bundle contract. Reuse the bundle's saved template and assets on later updates. Only change requested units, preserving stable identifiers and existing variants. Put any newly requested language's complete UI translation in `ui.json`; localize the index, explanations and exported prompts together. Keep original technical identifiers and original figure pixels.
 
-For each visual, cite the paper's figure/table/panel and page. Provide access to the original alongside teaching annotations. Never reconstruct experimental data from imagination. Image generation is optional: invoke the host's image tool only when explicitly requested, first inspect and pass the relevant original figure as a reference, and label the result as a teaching illustration. If the original or tool is unavailable, explain the specific missing input and continue unaffected reading work.
+For each visual, cite the paper's figure/table/panel and a stable source locator: page when available, otherwise section or paragraph. Do not invent PDF page numbers for Word, web or text sources. Provide access to the original alongside teaching annotations. Never reconstruct experimental data from imagination. Image generation is optional: invoke the host's image tool only when explicitly requested, first inspect and pass the relevant original figure as a reference, and label the result as a teaching illustration. If the original or tool is unavailable, explain the specific missing input and continue unaffected reading work.
 
-Record reader background, outstanding questions and `resume_unit` when relevant. Build against the revision you inspected; the helper increments it only when content changes. The output HTML works offline for authored content. Opening original PDF links or resuming with another agent requires the whole bundle.
+Record reader background, outstanding questions and `resume_unit` when relevant. Build against the revision you inspected; the helper increments it only when content changes. The output HTML works offline for authored content. Opening original document links or resuming with another agent requires the whole bundle.
 
 ## Finish the requested increment
 
